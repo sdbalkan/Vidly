@@ -1,0 +1,16 @@
+﻿@using Vidly.DomainModels
+@model IEnumerable<Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    @foreach (var customer in Model)
+    {
+        <li>
+            @Html.ActionLink(customer.Name, "Detail", "Customer", new { id = customer.Id }, null)
+        </li>
+    }
+</ul>

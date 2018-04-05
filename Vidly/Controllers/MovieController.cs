@@ -11,31 +11,19 @@ namespace Vidly.Controllers
     public class MovieController : Controller
     {
         // GET: Movie
-        public ActionResult Random()
+        public ActionResult Index()
         {
-            var movie = new Movie() { Name = "Matrix" };
-            var customers = new List<Customer>()
-            {
-                new Customer { Name = "Sedat" },
-                new Customer { Name = "Pınar" }
-            };
-
-            var model = new RandomViewModel()
-            {
-                Movie = movie,
-                Customers = customers
-            };
-
-            //ViewData["Movie"] = movie;
-            //ViewBag.Movie = movie;
-
-            return View(model);
+            var movies = GetMovies();
+            return View(movies);
         }
 
-        [Route("Movie/Filter/{year:int}/{month:range(1,12)}")]
-        public ActionResult FilterByYearMonth(int year, int month)
+        private List<Movie> GetMovies()
         {
-            return Content("year = " + year + ", month = " + month);
+            return new List<Movie>()
+            {
+                new Movie() { Name = "Matrix" },
+                new Movie() { Name = "Rocky" }
+            };
         }
     }
 }
