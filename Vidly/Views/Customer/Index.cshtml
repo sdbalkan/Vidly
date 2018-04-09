@@ -6,11 +6,20 @@
 
 <h2>Index</h2>
 
-<ul>
-    @foreach (var customer in Model)
-    {
-        <li>
-            @Html.ActionLink(customer.Name, "Detail", "Customer", new { id = customer.Id }, null)
-        </li>
-    }
-</ul>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Discount Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Detail", "Customer", new { id = customer.Id }, null)</td>
+                <td>@customer.MembershipType.DiscountRate%</td>
+            </tr>
+        }
+    </tbody>
+</table>
