@@ -6,6 +6,20 @@
 
 <h2>Detail</h2>
 
-@Model.Name
+<table class="table">
+    <tr>
+        <td>Name</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>Birth Date</td>
+        <td>
+            @if (@Model.BirthDate.HasValue)
+            {
+                @Model.BirthDate.Value
+            }
+        </td>
+    </tr>
+</table>
 
 
