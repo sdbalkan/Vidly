@@ -5,25 +5,36 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.DomainModels;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
     public class MovieController : Controller
     {
+        ApplicationDbContext _context;
+
+        public MovieController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+            base.Dispose(disposing);
+        }
+
         // GET: Movie
         public ActionResult Index()
         {
-            var movies = GetMovies();
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             return View(movies);
         }
 
-        private List<Movie> GetMovies()
+        public ActionResult Detail(int Id)
         {
-            return new List<Movie>()
-            {
-                new Movie() { Name = "Matrix" },
-                new Movie() { Name = "Rocky" }
-            };
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
+            return View(movie);
         }
     }
 }
