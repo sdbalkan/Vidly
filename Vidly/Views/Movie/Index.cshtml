@@ -1,11 +1,13 @@
 ﻿@using Vidly.DomainModels
 @model IEnumerable<Movie>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movies";
 }
 
-<h2>Index</h2>
-
+<h2>Movies</h2>
+<p>
+    @Html.ActionLink("New Movie", "New", "Movie", null, new { @class = "btn btn-primary" })
+</p>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -17,7 +19,7 @@
         @foreach (var movie in Model)
         {
             <tr>
-                <td>@Html.ActionLink(@movie.Name,"Detail", new { Id = movie.Id })</td>
+                <td>@Html.ActionLink(@movie.Name, "Edit", new { Id = movie.Id })</td>
                 <td>@movie.Genre.Name</td>
             </tr>
         }
