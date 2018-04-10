@@ -24,6 +24,34 @@ namespace Vidly.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult New()
+        {
+            var viewModel = new FormCustomerViewModel()
+            {
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("Form", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (customer.Id == 0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                customerInDb.Id = customer.Id;
+                customerInDb.Name = customer.Name;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter; 
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customer");
+        }
+
         // GET: Customer
         public ActionResult Index()
         {
@@ -37,6 +65,19 @@ namespace Vidly.Controllers
             if (customer == null)
                 return HttpNotFound();
             return View(customer);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+                return HttpNotFound();
+            var viewModel = new FormCustomerViewModel()
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("Form", viewModel);
         }
     }
 }

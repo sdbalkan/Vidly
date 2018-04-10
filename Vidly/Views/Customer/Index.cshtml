@@ -1,5 +1,4 @@
-﻿@using Vidly.DomainModels
-@model IEnumerable<Customer>
+﻿@model IEnumerable<Vidly.DomainModels.Customer>
 @{
     ViewBag.Title = "Index";
 }
@@ -17,7 +16,7 @@
         @foreach (var customer in Model)
         {
             <tr>
-                <td>@Html.ActionLink(customer.Name, "Detail", "Customer", new { id = customer.Id }, null)</td>
+                <td>@Html.ActionLink(customer.Name, "Edit", "Customer", new { id = customer.Id }, null)</td>
                 <td>@customer.MembershipType.Name</td>
             </tr>
         }
