@@ -14,10 +14,11 @@ namespace Vidly.Models
         {
             var customer = (Customer)validationContext.ObjectInstance;
 
-            if (customer.MembershipTypeId == 1)
+            if (customer.MembershipTypeId == MembershipType.Unknown || 
+                customer.MembershipTypeId == MembershipType.PayasYouGo)
                 return ValidationResult.Success;
 
-            if (customer.MembershipTypeId == 0 || customer.BirthDate == null)
+            if (customer.BirthDate == null)
                 return new ValidationResult("Birtdate is required.");
 
             var age = DateTime.Now.Year - customer.BirthDate.Value.Year;
