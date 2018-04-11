@@ -18,10 +18,13 @@ namespace Vidly.DomainModels
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? ReleaseDate { get; set; }
 
+        [Display(Name = "Date Added")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DateAdded { get; set; }
 
         [Required]
         [Display(Name = "Number In Stock")]
+        [Range(1, 20)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:N0}")]
         public int NumberInStock { get; set; }
 

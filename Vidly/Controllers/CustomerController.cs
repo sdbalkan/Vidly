@@ -28,12 +28,14 @@ namespace Vidly.Controllers
         {
             var viewModel = new FormCustomerViewModel()
             {
+                Customer = new Customer(),
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
             return View("Form", viewModel);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
