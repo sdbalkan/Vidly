@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Vidly.Models;
 
 namespace Vidly.DomainModels
 {
@@ -14,6 +15,7 @@ namespace Vidly.DomainModels
         [StringLength(255)]
         public string Name { get; set; }
 
+        [Min18YearsIfAMember]
         [Display(Name = "Date Of Birth")]
         public DateTime? BirthDate { get; set; }
 
