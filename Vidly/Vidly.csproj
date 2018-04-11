@@ -246,9 +246,9 @@
     <Compile Include="Migrations\201804101909560_AddMovieAnnotations.Designer.cs">
       <DependentUpon>201804101909560_AddMovieAnnotations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804102102452_AddReleaseDateDisplayFormat.cs" />
-    <Compile Include="Migrations\201804102102452_AddReleaseDateDisplayFormat.Designer.cs">
-      <DependentUpon>201804102102452_AddReleaseDateDisplayFormat.cs</DependentUpon>
+    <Compile Include="Migrations\201804110958140_UpdateMembershipTypesName.cs" />
+    <Compile Include="Migrations\201804110958140_UpdateMembershipTypesName.Designer.cs">
+      <DependentUpon>201804110958140_UpdateMembershipTypesName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -372,8 +372,8 @@
     <EmbeddedResource Include="Migrations\201804101909560_AddMovieAnnotations.resx">
       <DependentUpon>201804101909560_AddMovieAnnotations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804102102452_AddReleaseDateDisplayFormat.resx">
-      <DependentUpon>201804102102452_AddReleaseDateDisplayFormat.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804110958140_UpdateMembershipTypesName.resx">
+      <DependentUpon>201804110958140_UpdateMembershipTypesName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
