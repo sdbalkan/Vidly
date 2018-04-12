@@ -92,3 +92,9 @@ C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddGenre.resources
 C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenre.resources
 C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddMovieAnnotations.resources
 C:\Projects\Vidly\Vidly\obj\Debug\Vidly.Migrations.UpdateMembershipTypesName.resources
+C:\Projects\Vidly\Vidly\bin\System.Net.Http.Formatting.dll
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.dll
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.WebHost.dll
+C:\Projects\Vidly\Vidly\bin\System.Net.Http.Formatting.xml
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.xml
+C:\Projects\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
